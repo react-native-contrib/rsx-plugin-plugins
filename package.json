@@ -1,0 +1,22 @@
+{
+  "name": "rsx-plugin-plugins",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/react-native-contrib/rsx-plugin-plugins.git"
+  },
+  "author": "Hassan Khan <contact@hassankhan.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/react-native-contrib/rsx-plugin-plugins/issues"
+  },
+  "homepage": "https://github.com/react-native-contrib/rsx-plugin-plugins#readme",
+  "dependencies": {
+    "rsx-common": "^0.1.0"
+  }
+}
