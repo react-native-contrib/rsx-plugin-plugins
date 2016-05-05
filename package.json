@@ -1,7 +1,7 @@
 {
   "name": "rsx-plugin-plugins",
-  "version": "0.1.0",
-  "description": "",
+  "version": "0.1.1",
+  "description": "A project plugin installer plugin for the RSX CLI utility",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/react-native-contrib/rsx-plugin-plugins#readme",
   "dependencies": {
-    "rsx-common": "^0.1.0"
+    "rsx-common": "^0.1.1"
   }
 }
