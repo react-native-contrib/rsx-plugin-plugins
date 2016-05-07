@@ -8,17 +8,14 @@ const actions = {
 };
 
 module.exports = function plugins(args, callback) {
+    log.heading  = 'rsx-plugins';
+    const action = args[0];
+    const plugin = args[1];
 
-    log.heading   = 'rsx-plugins';
-    const appRoot = process.env.RN_PROJECT_ROOT;
-    const action  = args[0];
-    const plugin  = args[1];
-
-    if (Object.keys(actions).indexOf(action) !== -1) {
-        actions[action](plugin);
+    if (Object.keys(actions).indexOf(action) === -1) {
+        log.error(`${action} is not a valid action for this command`);
         return;
     }
 
-    log.error(action + ' is not a valid action for this command');
-
+    actions[action](plugin, callback);
 };

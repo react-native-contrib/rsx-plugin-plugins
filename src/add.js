@@ -2,7 +2,7 @@ const utils = require('rsx-common');
 const log = utils.log;
 
 const install = (plugin) => {
-    utils.makeCommand(`rnpm install ${plugin}`, () => {
+    utils.process.run(`rnpm install ${plugin}`)(() => {
         log.info(`Module ${plugin} has been successfully installed & linked`);
     });
 };
