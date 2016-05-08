@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/react-native-contrib/rsx-plugin-plugins#readme",
   "dependencies": {
-    "rsx-common": "^0.1.1"
+    "rsx-common": "^0.1.3"
   }
 }
