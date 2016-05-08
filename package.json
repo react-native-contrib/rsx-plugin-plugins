@@ -1,6 +1,6 @@
 {
   "name": "rsx-plugin-plugins",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A project plugin installer plugin for the RSX CLI utility",
   "main": "index.js",
   "scripts": {
