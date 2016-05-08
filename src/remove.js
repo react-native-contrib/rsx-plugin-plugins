@@ -5,7 +5,7 @@ const uninstall = (plugin) => {
     utils.process.run(`rnpm uninstall ${plugin}`)(() => {
         log.info(`Module ${plugin} has been successfully uninstalled & unlinked`);
     });
-}
+};
 
 module.exports = function remove(args, callback) {
     log.heading = 'rsx-plugins rm';
