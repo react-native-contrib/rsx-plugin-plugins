@@ -3,7 +3,7 @@ const log = utils.log;
 
 const actions = {
     'add': require('./add'),
-    'rm': require('./list'),
+    'rm': require('./remove'),
     'ls': require('./list'),
 };
 
