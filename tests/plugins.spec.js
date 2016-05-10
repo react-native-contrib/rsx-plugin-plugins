@@ -7,20 +7,6 @@ const path = require('path');
 const expect = chai.expect;
 const log = utils.log;
 
-const spy = sinon.spy();
-mock('rsx-common', {
-    log: log,
-    process: {
-        run: () => { return (callback) => { callback(); }; },
-    },
-    project: {
-        getPackageJson: utils.project.getPackageJson,
-    },
-    validate: {
-        isPlugin: utils.validate.isPlugin,
-    },
-});
-
 log.level = 'silent';
 
 describe('plugins', () => {
@@ -55,10 +41,19 @@ describe('plugins', () => {
     describe('add', () => {
 
         it('should add a React Native plugin', () => {
+            mock('rsx-common', {
+                log: log,
+                process: {
+                    run: () => { return (callback) => { callback(arguments); }; },
+                },
+            });
+
             const command = require('../src/add');
+            const spy = sinon.spy();
             command(['react-native-video'], spy);
 
             expect(spy.calledOnce).to.equals(true);
+            mock.stop('rsx-common');
         });
 
     });
