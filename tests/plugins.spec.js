@@ -19,7 +19,7 @@ describe('plugins', () => {
     //     expect(spy.calledWith('pppppp is not a valid action for this command'));
     // });
 
-    describe('plugins ls', () => {
+    describe('ls', () => {
 
         it('should show a list of installed plugins', () => {
             process.env.RN_PROJECT_ROOT = path.join(__dirname, 'fixtures');
@@ -58,7 +58,7 @@ describe('plugins', () => {
 
     });
 
-    describe('plugins rm', () => {
+    describe('rm', () => {
 
         it('should remove a React Native plugin');
 
