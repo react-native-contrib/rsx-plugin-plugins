@@ -4,7 +4,7 @@
   "description": "A project plugin installer plugin for the RSX CLI utility",
   "main": "index.js",
   "scripts": {
-    "test": "eslint index.js src/ && istanbul cover _mocha --recursive tests/"
+    "test": "eslint index.js src/ tests/ && istanbul cover _mocha --recursive tests/"
   },
   "repository": {
     "type": "git",

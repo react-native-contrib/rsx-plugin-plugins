@@ -11,14 +11,14 @@ const spy = sinon.spy();
 mock('rsx-common', {
     log: log,
     process: {
-        run: () => { return (callback) => { callback(); } },
+        run: () => { return (callback) => { callback(); }; },
     },
     project: {
         getPackageJson: utils.project.getPackageJson,
     },
     validate: {
         isPlugin: utils.validate.isPlugin,
-    }
+    },
 });
 
 log.level = 'silent';
@@ -44,9 +44,9 @@ describe('plugins', () => {
             });
 
             expect(result).to.deep.equals([
-                "react-native-vector-icons",
-                "react-native-video",
-                "react-native-youtube"
+                'react-native-vector-icons',
+                'react-native-video',
+                'react-native-youtube',
             ]);
         });
 
