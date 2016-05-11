@@ -1,10 +1,11 @@
 const utils = require('rsx-common');
+const rnpm = require('./rnpm');
+
 const log = utils.log;
-const install = require('./rnpm-install');
 
 module.exports = function add(args, callback) {
     log.heading = 'rsx-plugins add';
     const plugin = args;
 
-    install(plugin, callback);
+    rnpm('install', plugin, callback);
 };
