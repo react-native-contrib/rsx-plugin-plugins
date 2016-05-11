@@ -11,13 +11,22 @@ log.level = 'silent';
 
 describe('plugins', () => {
 
-    it('should throw an error if an invalid action is specified');
-    // it('should throw an error if an invalid action is specified', () => {
-    //     const spy = sinon.spy();
-    //     const command = require('../src/plugins');
-    //     command(['pppppp'], spy);
-    //     expect(spy.calledWith('pppppp is not a valid action for this command'));
-    // });
+    // it('should throw an error if an invalid action is specified');
+    it('should throw an error if an invalid action is specified', () => {
+        mock('rsx-common', {
+            log: log,
+            process: {
+                run: () => { return (callback) => { callback(arguments); }; },
+            },
+            project: utils.project,
+            validate: utils.validate,
+        });
+        const spy = sinon.spy();
+        const command = require('../src/plugins');
+        command(['pppppp'], spy);
+        expect(spy.calledWith('pppppp is not a valid action for this command'));
+        mock.stop('rsx-common');
+    });
 
     describe('ls', () => {
 
