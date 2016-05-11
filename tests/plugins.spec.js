@@ -55,12 +55,25 @@ describe('plugins', () => {
             expect(spy.calledOnce).to.equals(true);
             mock.stop('rsx-common');
         });
-
     });
 
     describe('rm', () => {
 
-        it('should remove a React Native plugin');
+        it('should remove a React Native plugin', () => {
+            mock('rsx-common', {
+                log: log,
+                process: {
+                    run: () => { return (callback) => { callback(arguments); }; },
+                },
+            });
+
+            const command = require('../src/remove');
+            const spy = sinon.spy();
+            command(['react-native-video'], spy);
+
+            expect(spy.calledOnce).to.equals(true);
+            mock.stop('rsx-common');
+        });
 
     });
 
