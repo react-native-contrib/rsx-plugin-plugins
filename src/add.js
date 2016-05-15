@@ -1,5 +1,7 @@
+'use strict';
+
 const utils = require('rsx-common');
-const rnpm = require('./rnpm');
+let rnpm = require('./rnpm');
 
 const log = utils.log;
 

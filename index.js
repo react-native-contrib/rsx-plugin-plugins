@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = [{
     func: require('./src/plugins'),
     description: 'Interact with native dependencies',

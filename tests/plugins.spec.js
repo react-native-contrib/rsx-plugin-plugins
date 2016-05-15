@@ -1,6 +1,8 @@
+'use strict';
+
 const utils = require('rsx-common');
 const chai = require('chai');
-const mock = require('mock-require');
+const rewire = require('rewire');
 const sinon = require('sinon');
 const path = require('path');
 
@@ -12,19 +14,10 @@ log.level = 'silent';
 describe('plugins', () => {
 
     it('should throw an error if an invalid action is specified', () => {
-        mock('rsx-common', {
-            log: log,
-            process: {
-                run: () => { return (callback) => { callback(arguments); }; },
-            },
-            project: utils.project,
-            validate: utils.validate,
-        });
         const spy = sinon.spy();
         const command = require('../src/plugins');
         command(['pppppp'], spy);
         expect(spy.calledWith('pppppp is not a valid action for this command'));
-        mock.stop('rsx-common');
     });
 
     it('should execute the subcommand if a valid action is specified', () => {
@@ -57,38 +50,34 @@ describe('plugins', () => {
     describe('add', () => {
 
         it('should add a React Native plugin', () => {
-            mock('rsx-common', {
-                log: log,
-                process: {
-                    run: () => { return (callback) => { callback(arguments); }; },
-                },
+            process.env.RN_PROJECT_ROOT = path.join(__dirname, 'fixtures');
+
+            let commandMock = rewire('../src/add');
+            commandMock.__set__('rnpm', function rnpm(command, plugin, callback) {
+                callback(plugin);
             });
 
-            const command = require('../src/add');
             const spy = sinon.spy();
-            command(['react-native-video'], spy);
+            commandMock(['react-native-video'], spy);
 
             expect(spy.calledOnce).to.equals(true);
-            mock.stop('rsx-common');
         });
     });
 
     describe('rm', () => {
 
         it('should remove a React Native plugin', () => {
-            mock('rsx-common', {
-                log: log,
-                process: {
-                    run: () => { return (callback) => { callback(arguments); }; },
-                },
+            process.env.RN_PROJECT_ROOT = path.join(__dirname, 'fixtures');
+
+            let commandMock = rewire('../src/remove');
+            commandMock.__set__('rnpm', function rnpm(command, plugin, callback) {
+                callback(plugin);
             });
 
-            const command = require('../src/remove');
             const spy = sinon.spy();
-            command(['react-native-video'], spy);
+            commandMock(['react-native-video'], spy);
 
             expect(spy.calledOnce).to.equals(true);
-            mock.stop('rsx-common');
         });
 
     });
