@@ -1,9 +1,9 @@
 'use strict';
 
-const utils = require('rsx-common');
+let utils = require('rsx-common');
 let rnpm = require('./rnpm');
 
-const log = utils.log;
+let log = utils.log;
 
 module.exports = function add(args, callback) {
     log.heading = 'rsx-plugins add';

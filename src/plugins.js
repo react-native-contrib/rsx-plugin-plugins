@@ -1,9 +1,9 @@
 'use strict';
 
-const utils = require('rsx-common');
+let utils = require('rsx-common');
 
-const _   = utils._;
-const log = utils.log;
+let _   = utils._;
+let log = utils.log;
 
 const actions = {
     'add': require('./add'),

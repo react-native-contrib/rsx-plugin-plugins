@@ -1,13 +1,13 @@
 'use strict';
 
-const utils = require('rsx-common');
-const chai = require('chai');
-const rewire = require('rewire');
-const sinon = require('sinon');
-const path = require('path');
+let utils = require('rsx-common');
+let chai = require('chai');
+let rewire = require('rewire');
+let sinon = require('sinon');
+let path = require('path');
 
-const expect = chai.expect;
-const log = utils.log;
+let expect = chai.expect;
+let log = utils.log;
 
 log.level = 'silent';
 
@@ -16,15 +16,15 @@ describe('plugins', () => {
     describe('main', () => {
 
         it('should throw an error if an invalid action is specified', () => {
-            const spy = sinon.spy();
-            const command = require('../src/plugins');
+            let spy = sinon.spy();
+            let command = require('../src/plugins');
             command(['pppppp'], spy);
             expect(spy.calledWith('pppppp is not a valid action for this command'));
         });
 
         it('should execute the subcommand if a valid action is specified', () => {
-            const spy = sinon.spy();
-            const command = require('../src/plugins');
+            let spy = sinon.spy();
+            let command = require('../src/plugins');
             command(['ls'], spy);
 
             expect(spy.calledOnce).to.deep.equals(true);
@@ -37,7 +37,7 @@ describe('plugins', () => {
         it('should show a list of installed plugins', () => {
             process.env.RN_PROJECT_ROOT = path.join(__dirname, 'fixtures');
             let result;
-            const command = require('../src/list');
+            let command = require('../src/list');
             command({}, (plugins) => {
                 result = plugins;
             });
@@ -61,7 +61,7 @@ describe('plugins', () => {
                 callback(plugin);
             });
 
-            const spy = sinon.spy();
+            let spy = sinon.spy();
             commandMock(['react-native-video'], spy);
 
             expect(spy.calledOnce).to.equals(true);
@@ -78,7 +78,7 @@ describe('plugins', () => {
                 callback(plugin);
             });
 
-            const spy = sinon.spy();
+            let spy = sinon.spy();
             commandMock(['react-native-video'], spy);
 
             expect(spy.calledOnce).to.equals(true);

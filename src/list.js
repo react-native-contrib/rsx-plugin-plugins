@@ -1,8 +1,8 @@
 'use strict';
 
-const utils = require('rsx-common');
+let utils = require('rsx-common');
 
-const log = utils.log;
+let log = utils.log;
 
 const filterDependencies = (pkg) => {
     const deps = Object.keys(pkg.dependencies || {});
