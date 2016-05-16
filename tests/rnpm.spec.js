@@ -24,7 +24,7 @@ describe('rnpm', () => {
         });
         commandMock('install', 'react-native-plugin', spy);
 
-        expect(spy.calledOnce).to.deep.equals(true);
+        expect(spy.calledOnce).to.be.true;
     });
 
 });

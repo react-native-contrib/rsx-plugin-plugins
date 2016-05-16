@@ -7,7 +7,7 @@ let log = utils.log;
 
 module.exports = function remove(args, callback) {
     log.heading = 'rsx-plugins rm';
-    const plugin = args;
+    let plugin = args;
 
     rnpm('uninstall', plugin, callback);
 };

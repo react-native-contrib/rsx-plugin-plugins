@@ -13,8 +13,8 @@ const actions = {
 
 module.exports = function plugins(args, callback) {
     log.heading  = 'rsx-plugins';
-    const action = args[0];
-    const plugin = args[1];
+    let action = args[0];
+    let plugin = args[1];
 
     if (!_.includes(_.keys(actions), action)) {
 

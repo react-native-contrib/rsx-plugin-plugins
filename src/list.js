@@ -11,9 +11,9 @@ const filterDependencies = (pkg) => {
 
 module.exports = function list(args, callback) {
     log.heading = 'rsx-plugins ls';
-    const appRoot = process.env.RN_PROJECT_ROOT;
+    let appRoot = process.env.RN_PROJECT_ROOT;
 
-    const plugins = filterDependencies(utils.project.getPackageJson(appRoot));
+    let plugins = filterDependencies(utils.project.getPackageJson(appRoot));
     plugins.forEach((plugin) => log.info(plugin));
 
     if (callback) { callback(plugins); }
