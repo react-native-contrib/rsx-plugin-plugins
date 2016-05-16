@@ -19,7 +19,8 @@ describe('plugins', () => {
             let spy = sinon.spy();
             let command = require('../src/plugins');
             command(['pppppp'], spy);
-            expect(spy.calledWith('pppppp is not a valid action for this command'));
+
+            expect(spy.called).to.be.false;
         });
 
         it('should execute the subcommand if a valid action is specified', () => {
@@ -27,7 +28,7 @@ describe('plugins', () => {
             let command = require('../src/plugins');
             command(['ls'], spy);
 
-            expect(spy.calledOnce).to.deep.equals(true);
+            expect(spy.calledOnce).to.be.true;
         });
 
     });
@@ -64,7 +65,7 @@ describe('plugins', () => {
             let spy = sinon.spy();
             commandMock(['react-native-video'], spy);
 
-            expect(spy.calledOnce).to.equals(true);
+            expect(spy.calledOnce).to.be.true;
         });
     });
 
@@ -81,7 +82,7 @@ describe('plugins', () => {
             let spy = sinon.spy();
             commandMock(['react-native-video'], spy);
 
-            expect(spy.calledOnce).to.equals(true);
+            expect(spy.calledOnce).to.be.true;
         });
 
     });
